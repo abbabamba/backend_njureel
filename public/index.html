@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="WebRTC audio communication example">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <title>Téléphonie Web - Mon Appel</title>
+
+    <link rel="stylesheet" href="./css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<div id="app-container"> <h1>Mon Appel WebRTC</h1>
+
+    <div id="user-setup" class="card">
+        <label for="username">Mon ID :</label>
+        <input type="text" id="username" value="" placeholder="mon_id_unique" autocomplete="off">
+        <button id="registerButton" class="btn primary">S'enregistrer</button>
+        <p id="status" class="message"></p>
+    </div>
+
+    <div id="call-controls" class="card" style="display: none;">
+        <label for="remoteId">Appeler l'ID :</label>
+        <input type="text" id="remoteId" value="" placeholder="id_de_l'autre" autocomplete="off">
+        <button id="callButton" class="btn success">Appeler</button>
+        <button id="hangupButton" class="btn danger" disabled>Raccrocher</button>
+    </div>
+
+    <div id="audio-streams" class="card">
+        <div class="audio-box">
+            <p class="label">Audio Local</p>
+            <audio id="audio1" autoplay controls muted></audio>
+        </div>
+        <div class="audio-box">
+            <p class="label">Audio Distant</p>
+            <audio id="audio2" autoplay controls></audio>
+        </div>
+    </div>
+
+</div>
+
+<audio id="ringtoneAudio" src="./audio/ringtone.mp3" loop preload="auto"></audio>
+<audio id="incomingCallAudio" src="./audio/incoming.mp3" preload="auto"></audio>
+
+
+<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<script src="/socket.io/socket.io.js"></script>
+<script src="./js/app.js"></script>
+
+</body>
+</html>
